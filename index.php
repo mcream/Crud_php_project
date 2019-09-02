@@ -1,3 +1,7 @@
+<?php 
+    require_once('app.php');
+
+?>
 <!doctype html>
 <html>
 <head>
@@ -36,19 +40,20 @@
             </tr>
         </tbody>
         </table>
-        <form action="">
+        <form action="app.php">
+            <input type="hidden" name="id" value="">
         <!-- Form for adding new records -->
             <div class="form-group">
                 <label for="firstname">First name</label>
-                <input type="text" class="form-control" placeholder="Enter first name">
+                <input type="text" class="form-control" name="fname" placeholder="Enter first name">
             </div>
             <div class="form-group">
                 <label for="lastname">Last name</label>
-                <input type="text" class="form-control" placeholder="Enter last name">
+                <input type="text" class="form-control" name="lname" placeholder="Enter last name">
             </div>
 
-            <button type="submit" class="btn btn-success">Add and Edit</button>
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn-success" name="upadate">Add and Edit</button>
+            <button type="submit" class="btn btn-danger" name="save">Delete</button>
         </form>
     </div>
     
