@@ -34,8 +34,16 @@
     <!-- Table with added records to dbs -->
     <div class="conatiner">
         <div class="col-xl-12 request">
-            <?php
-            ?>
+
+        <?php if (isset($_SESSION['message'])): ?>
+	<div class="msg">
+		<?php
+			echo $_SESSION['message'];
+			unset($_SESSION['message']);
+		?>
+	</div>
+            <?php endif ?>
+            <?php $results = mysqli_query($database, "SELECT * FROM info"); ?>
         </div>
     
             <table class="table">
@@ -47,41 +55,47 @@
             <th scope="col">Option</th>
             </tr>
         </thead>
+        <?php while ($row = mysqli_fetch_array($results)) { ?>
+		<tr>
+			<td><?php echo $row['fname']; ?></td>
+			<td><?php echo $row['lname']; ?></td>
+			<td>
+				<a href="index.php?edit=<?php echo $row['id']; ?>" class="btn-success" >Edit</a>
+			</td>
+			<td>
+				<a href="app.php?del=<?php echo $row['id']; ?>" class="btn-danger">Delete</a>
+			</td>
+		</tr>
+        <?php } ?>
+
         <!-- records -->
         <tbody>
             <tr>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td></td>
-            </tr>
-            <tr>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td></td></td>
-            </tr>
-            <tr>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td></td>
+                <td><?php echo $row['fname']; ?></td>
+                <td><?php echo $row['lname']; ?></td>
+                <td>
+                    <a href="index.php?edit=<?php echo $row['id']; ?>">Edit</a>
+                    <a href="server.php?del=<?php echo $row['id']; ?>">Delete</a>
+                </td>
             </tr>
         </tbody>
         </table>
-        <form action="app.php">
+        <form method="post" action="app.php">
             <input type="hidden" name="id" value="">
         <!-- Form for adding new records -->
             <div class="form-group">
                 <label for="firstname">First name</label>
-                <input type="text" class="form-control" name="fname" placeholder="Enter first name">
+                <input type="text" class="form-control" name="fname" value="<?php echo $fname; ?>">
             </div>
             <div class="form-group">
                 <label for="lastname">Last name</label>
-                <input type="text" class="form-control" name="lname" placeholder="Enter last name">
+                <input type="text" class="form-control" name="lname" value="<?php echo $lname; ?>">
             </div>  
             <?php if ($update == true): ?>
-            <button type="submit" class="btn btn-success" name="upadate">Add and Edit</button>
+            <button type="submit" class="btn btn-success" name="update">Add and Edit</button>
             <?php else: ?>
             <button type="submit" class="btn btn-danger" name="save">Delete</button>
-            <?php else: ?>
+            <?php endif ?>
         </form>
     </div>
     
