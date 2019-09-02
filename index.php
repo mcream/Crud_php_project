@@ -43,7 +43,7 @@
 		?>
 	</div>
             <?php endif ?>
-            <?php $results = mysqli_query($database, "SELECT * FROM info"); ?>
+            <?php $results = mysqli_query($database, "SELECT * FROM db"); ?>
         </div>
     
             <table class="table">
