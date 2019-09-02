@@ -73,15 +73,15 @@
             <tr>
                 <td><?php echo $row['fname']; ?></td>
                 <td><?php echo $row['lname']; ?></td>
-                <td>
+                <!--<td>
                     <a href="index.php?edit=<?php echo $row['id']; ?>">Edit</a>
                     <a href="server.php?del=<?php echo $row['id']; ?>">Delete</a>
-                </td>
+                </td>-->
             </tr>
         </tbody>
         </table>
         <form method="post" action="app.php">
-            <input type="hidden" name="id" value="">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
         <!-- Form for adding new records -->
             <div class="form-group">
                 <label for="firstname">First name</label>
