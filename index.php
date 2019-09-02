@@ -3,7 +3,7 @@
 	if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
 		$update = true;
-		$record = mysqli_query($database, "SELECT * FROM info WHERE id=$id");
+		$record = mysqli_query($database, "SELECT * FROM db WHERE id=$id");
 
 		if (count($record) == 1 ) {
 			$n = mysqli_fetch_array($record);
@@ -26,7 +26,15 @@
             width: 100%;
             text-align: center;
         }
-    
+        form{
+        border-radius: 15px;
+        display: block;
+    	margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        padding: 50px;
+        background-color: #e1e1;
+    }
     </style>
 </head>
 <body>
@@ -61,10 +69,8 @@
 			<td><?php echo $row['lname']; ?></td>
 			<td>
 				<a href="index.php?edit=<?php echo $row['id']; ?>" class="btn-success" >Edit</a>
-			</td>
-			<td>
-				<a href="app.php?del=<?php echo $row['id']; ?>" class="btn-danger">Delete</a>
-			</td>
+                <a href="app.php?del=<?php echo $row['id']; ?>" class="btn-danger">Delete</a>
+            </td>
 		</tr>
         <?php } ?>
 
