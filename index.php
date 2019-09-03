@@ -5,7 +5,7 @@
 		$update = true;
 		$record = mysqli_query($database, "SELECT * FROM db WHERE id=$id");
 
-		if (count($record) == 1 ) {
+		if (@count($record) == 1 ) {
 			$n = mysqli_fetch_array($record);
 			$lname = $n['lname'];
 			$fname = $n['fname'];
