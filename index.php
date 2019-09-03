@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+=======
+<?php 
+    require_once('app.php');
+	if (isset($_GET['edit'])) {
+		$id = $_GET['edit'];
+		$update = true;
+		$record = mysqli_query($database, "SELECT * FROM db WHERE id=$id");
+
+		if (@count($record) == 1 ) {
+			$n = mysqli_fetch_array($record);
+			$lname = $n['lname'];
+			$fname = $n['fname'];
+		}
+	}
+?>
+<!doctype html>
+>>>>>>> 2c1c349... Final version. Count() was hushed up.
 <html>
 <head>
     <title>CRUD by PHP</title>
