@@ -98,9 +98,9 @@
                 <input type="text" class="form-control" name="lname" value="<?php echo $lname; ?>">
             </div>  
             <?php if ($update == true): ?>
-            <button type="submit" class="btn btn-success" name="update">Add and Edit</button>
+            <button type="submit" class="btn btn-danger" name="update">Delete</button>
             <?php else: ?>
-            <button type="submit" class="btn btn-danger" name="save">Delete</button>
+            <button type="submit" class="btn btn-success" name="save">Add</button>
             <?php endif ?>
         </form>
     </div>
