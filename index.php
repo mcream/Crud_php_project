@@ -33,7 +33,7 @@
         margin-right: auto;
         width: 50%;
         padding: 50px;
-        background-color: #e1e1;
+        background-color: #f0f0f0;
     }
     </style>
 </head>
@@ -98,7 +98,7 @@
                 <input type="text" class="form-control" name="lname" value="<?php echo $lname; ?>">
             </div>  
             <?php if ($update == true): ?>
-            <button type="submit" class="btn btn-danger" name="update">Delete</button>
+            <button type="submit" class="btn btn-warning" name="update">Edit</button>
             <?php else: ?>
             <button type="submit" class="btn btn-success" name="save">Add</button>
             <?php endif ?>

@@ -23,10 +23,12 @@ $database = mysqli_connect('localhost', 'root', '', 'project_php');
   	$fname = $_POST['fname'];
   	$lname = $_POST['lname'];
 
-  	mysqli_query($database, "UPDATE db SET name='$name', lname='$lname' WHERE id=$id");
+  	mysqli_query($database, "UPDATE db SET fname='$fname', lname='$lname' WHERE id=$id");
   	$_SESSION['message'] = "Record has been Updated";
   	header('location: index.php');
   }
+
+
   if (isset($_GET['del'])) {
   	$id = $_GET['del'];
   	mysqli_query($database, "DELETE FROM db WHERE id=$id");
